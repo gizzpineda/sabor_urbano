@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Inicio')
+@section('body-class', 'lg:h-dvh lg:overflow-hidden')
 
 @section('content')
 
@@ -30,7 +31,7 @@
                 <span class="transition group-hover:translate-x-1">→</span>
             </a>
 
-            <a href="#" class="inline-flex items-center rounded-full border border-white/25 px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-stone-200 transition hover:border-brand-gold hover:text-brand-gold">
+            <a href="{{ route('menu') }}" class="inline-flex items-center rounded-full border border-white/25 px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-stone-200 transition hover:border-brand-gold hover:text-brand-gold">
                 Ver menú
             </a>
         </div>

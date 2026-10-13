@@ -12,7 +12,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-page flex min-h-dvh flex-col font-body text-stone-200 antialiased lg:h-dvh lg:overflow-hidden">
+<body class="bg-page flex min-h-dvh flex-col font-body text-stone-200 antialiased @yield('body-class', '')">
 
     <header class="border-b border-brand-gold/20 bg-black/40 backdrop-blur">
         {{-- Franja dorada --}}
@@ -48,7 +48,7 @@
         </div>
     </header>
 
-    <main class="mx-auto flex w-full max-w-6xl flex-1 items-center px-4 py-6">
+    <main class="mx-auto flex w-full max-w-6xl flex-1 px-4 py-6 @yield('main-class', 'items-center')">
         @yield('content')
     </main>
 
