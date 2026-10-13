@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -45,5 +46,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Determina si el usuario tiene rol de administrador.
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
     }
 }
