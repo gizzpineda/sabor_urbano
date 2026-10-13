@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-body: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+    --font-display: 'Anton', ui-sans-serif, sans-serif;
+    --font-body: 'Josefin Slab', ui-serif, serif;
+
+    --color-brand-black: #080808;
+    --color-brand-gray: #2d2d2d;
+    --color-brand-gold: #c19a21;
+    --color-brand-red: #e8452c;
+}
+
+.bg-grid {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.bg-page {
+    background-color: #080808;
+    background-image:
+        radial-gradient(50rem 36rem at 85% 15%, rgba(193, 154, 33, 0.20), transparent 60%),
+        radial-gradient(40rem 30rem at 0% 100%, rgba(193, 154, 33, 0.12), transparent 60%),
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(160deg, #0a0a0a 0%, #2d2d2d 100%);
+    background-size: auto, auto, 44px 44px, 44px 44px, auto;
+}
