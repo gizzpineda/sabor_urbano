@@ -12,13 +12,13 @@
 
     <div class="grid gap-4 sm:grid-cols-2">
         <div class="sm:col-span-2">
-            <label for="nombre" class="mb-1 block text-sm text-stone-300">Nombre *</label>
-            <input id="nombre" name="nombre" value="{{ old('nombre', $producto->nombre) }}" required maxlength="255" class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-white focus:border-brand-gold">
+            <label for="nombre" class="mb-1 block text-xs font-medium text-stone-300">Nombre <span class="text-brand-gold">*</span></label>
+            <input id="nombre" name="nombre" value="{{ old('nombre', $producto->nombre) }}" required maxlength="255" class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-sm text-stone-100 outline-none transition focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/40">
             @error('nombre')<p class="mt-1 text-sm text-amber-200">{{ $message }}</p>@enderror
         </div>
         <div>
-            <label for="categoria" class="mb-1 block text-sm text-stone-300">Categoría *</label>
-            <select id="categoria" name="categoria" required class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-white focus:border-brand-gold">
+            <label for="categoria" class="mb-1 block text-xs font-medium text-stone-300">Categoría <span class="text-brand-gold">*</span></label>
+            <select id="categoria" name="categoria" required class="[color-scheme:dark] w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-sm text-stone-100 outline-none transition focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/40">
                 <option value="">Selecciona una categoría</option>
                 <option value="plato" @selected(old('categoria', $producto->categoria) === 'plato')>Plato</option>
                 <option value="bebida" @selected(old('categoria', $producto->categoria) === 'bebida')>Bebida</option>
@@ -26,8 +26,8 @@
             @error('categoria')<p class="mt-1 text-sm text-amber-200">{{ $message }}</p>@enderror
         </div>
         <div>
-            <label for="subcategoria" class="mb-1 block text-sm text-stone-300">Subcategoría *</label>
-            <select id="subcategoria" name="subcategoria" required class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-white focus:border-brand-gold">
+            <label for="subcategoria" class="mb-1 block text-xs font-medium text-stone-300">Subcategoría <span class="text-brand-gold">*</span></label>
+            <select id="subcategoria" name="subcategoria" required class="[color-scheme:dark] w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-sm text-stone-100 outline-none transition focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/40">
                 <option value="">Selecciona una subcategoría</option>
                 @foreach ($subcategorias as $subcategoria)
                     <option value="{{ $subcategoria }}" @selected(old('subcategoria', $producto->subcategoria) === $subcategoria)>{{ ucfirst($subcategoria) }}</option>
@@ -36,28 +36,28 @@
             @error('subcategoria')<p class="mt-1 text-sm text-amber-200">{{ $message }}</p>@enderror
         </div>
         <div>
-            <label for="precio" class="mb-1 block text-sm text-stone-300">Precio en guaraníes *</label>
-            <input id="precio" name="precio" type="number" min="0" step="1" value="{{ old('precio', $producto->precio) }}" required class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-white focus:border-brand-gold">
+            <label for="precio" class="mb-1 block text-xs font-medium text-stone-300">Precio en guaraníes <span class="text-brand-gold">*</span></label>
+            <input id="precio" name="precio" type="number" min="0" step="1" value="{{ old('precio', $producto->precio) }}" required class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-sm text-stone-100 outline-none transition focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/40">
             @error('precio')<p class="mt-1 text-sm text-amber-200">{{ $message }}</p>@enderror
         </div>
         <div>
-            <label for="stock" class="mb-1 block text-sm text-stone-300">Stock *</label>
-            <input id="stock" name="stock" type="number" min="0" step="1" value="{{ old('stock', $producto->stock ?? 0) }}" required class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-white focus:border-brand-gold">
+            <label for="stock" class="mb-1 block text-xs font-medium text-stone-300">Stock <span class="text-brand-gold">*</span></label>
+            <input id="stock" name="stock" type="number" min="0" step="1" value="{{ old('stock', $producto->stock ?? 0) }}" required class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-sm text-stone-100 outline-none transition focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/40">
             @error('stock')<p class="mt-1 text-sm text-amber-200">{{ $message }}</p>@enderror
         </div>
         <div>
-            <label for="presentacion" class="mb-1 block text-sm text-stone-300">Presentación</label>
-            <input id="presentacion" name="presentacion" value="{{ old('presentacion', $producto->presentacion) }}" class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-white focus:border-brand-gold">
+            <label for="presentacion" class="mb-1 block text-xs font-medium text-stone-300">Presentación</label>
+            <input id="presentacion" name="presentacion" value="{{ old('presentacion', $producto->presentacion) }}" class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-sm text-stone-100 outline-none transition focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/40">
             @error('presentacion')<p class="mt-1 text-sm text-amber-200">{{ $message }}</p>@enderror
         </div>
         <div>
-            <label for="marca" class="mb-1 block text-sm text-stone-300">Marca</label>
-            <input id="marca" name="marca" value="{{ old('marca', $producto->marca) }}" class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-white focus:border-brand-gold">
+            <label for="marca" class="mb-1 block text-xs font-medium text-stone-300">Marca</label>
+            <input id="marca" name="marca" value="{{ old('marca', $producto->marca) }}" class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-sm text-stone-100 outline-none transition focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/40">
             @error('marca')<p class="mt-1 text-sm text-amber-200">{{ $message }}</p>@enderror
         </div>
         <div>
-            <label for="icono" class="mb-1 block text-sm text-stone-300">Icono *</label>
-            <select id="icono" name="icono" required class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-white focus:border-brand-gold">
+            <label for="icono" class="mb-1 block text-xs font-medium text-stone-300">Icono <span class="text-brand-gold">*</span></label>
+            <select id="icono" name="icono" required class="[color-scheme:dark] w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-sm text-stone-100 outline-none transition focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/40">
                 <option value="">Selecciona un icono</option>
                 @foreach ($iconos as $icono)
                     <option value="{{ $icono }}" @selected(old('icono', $producto->icono) === $icono)>{{ ucfirst($icono) }}</option>
@@ -66,14 +66,14 @@
             @error('icono')<p class="mt-1 text-sm text-amber-200">{{ $message }}</p>@enderror
         </div>
         <div class="sm:col-span-2">
-            <label for="descripcion" class="mb-1 block text-sm text-stone-300">Descripción</label>
-            <textarea id="descripcion" name="descripcion" rows="4" class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-white focus:border-brand-gold">{{ old('descripcion', $producto->descripcion) }}</textarea>
+            <label for="descripcion" class="mb-1 block text-xs font-medium text-stone-300">Descripción</label>
+            <textarea id="descripcion" name="descripcion" rows="4" class="w-full rounded-lg border border-stone-700 bg-stone-900 px-4 py-3 text-sm text-stone-100 outline-none transition focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/40">{{ old('descripcion', $producto->descripcion) }}</textarea>
             @error('descripcion')<p class="mt-1 text-sm text-amber-200">{{ $message }}</p>@enderror
         </div>
     </div>
 
     <div class="flex flex-wrap justify-end gap-3 border-t border-stone-800 pt-4">
-        <a href="{{ route('admin.productos.index') }}" class="rounded-lg border border-stone-700 px-5 py-3 text-stone-300 transition hover:border-brand-gold hover:text-brand-gold">Cancelar</a>
-        <button type="submit" class="rounded-lg bg-brand-gold px-5 py-3 font-semibold text-brand-black transition hover:brightness-110">{{ $editing ? 'Guardar cambios' : 'Crear producto' }}</button>
+        <a href="{{ route('admin.productos.index') }}" class="rounded-lg border border-stone-600 px-5 py-3 text-sm font-medium text-stone-300 transition hover:border-stone-400 hover:bg-stone-800 hover:text-white">Cancelar</a>
+        <button type="submit" class="rounded-lg bg-brand-gold px-5 py-3 text-sm font-semibold text-brand-black transition hover:brightness-110">{{ $editing ? 'Guardar cambios' : 'Crear producto' }}</button>
     </div>
 </form>

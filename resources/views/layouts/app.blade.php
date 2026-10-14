@@ -37,27 +37,54 @@
                 <span class="h-px w-16 bg-linear-to-l from-transparent to-brand-gold md:w-40"></span>
             </div>
 
-            {{-- Mi cuenta --}}
-            @auth
-                <div class="mx-auto mt-4 flex w-fit items-center gap-3 md:absolute md:right-4 md:top-1/2 md:mx-0 md:mt-0 md:-translate-y-1/2">
-                    <span class="text-sm font-medium text-stone-200">{{ Auth::user()->name }}</span>
-                    @if (Auth::user()->isAdmin())
-                        <a href="{{ route('admin.productos.index') }}" class="text-sm font-medium text-brand-gold transition hover:text-amber-200">Panel de productos</a>
-                    @endif
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="rounded-full border border-brand-gold px-5 py-2 text-sm font-medium uppercase tracking-wider text-brand-gold transition hover:bg-brand-gold hover:text-brand-black">Cerrar sesión</button>
-                    </form>
-                </div>
-            @else
-            <a href="{{ route('login') }}" class="mx-auto mt-4 flex w-fit items-center gap-2 rounded-full border border-brand-gold px-5 py-2 text-sm font-medium uppercase tracking-wider text-brand-gold transition hover:bg-brand-gold hover:text-brand-black md:absolute md:right-4 md:top-1/2 md:mx-0 md:mt-0 md:-translate-y-1/2">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                </svg>
-                Mi cuenta
-            </a>
-            @endauth
+    {{-- Mi cuenta --}}
+@auth
+    <details class="group relative mx-auto mt-4 w-fit md:absolute md:right-4 md:top-1/2 md:mx-0 md:mt-0 md:-translate-y-1/2">
+        <summary class="flex cursor-pointer list-none items-center gap-2 rounded-full border border-brand-gold px-5 py-2 text-sm font-medium uppercase tracking-wider text-brand-gold transition hover:bg-brand-gold hover:text-brand-black [&::-webkit-details-marker]:hidden">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+            </svg>
+            <span class="hidden lg:inline">{{ \Illuminate\Support\Str::before(Auth::user()->name, ' ') }}</span>
+            <span class="lg:hidden">Mi cuenta</span>
+            <svg class="h-3 w-3 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+            </svg>
+        </summary>
+
+        <div class="absolute right-0 top-full z-50 mt-2 w-60 rounded-xl border border-brand-gold/30 bg-neutral-950 p-2 shadow-2xl shadow-black/60">
+            <div class="border-b border-white/10 px-3 pb-2 pt-1">
+                <p class="truncate text-sm font-medium text-white">{{ Auth::user()->name }}</p>
+                <p class="text-xs uppercase tracking-widest text-brand-gold">
+                    {{ Auth::user()->isAdmin() ? 'Administrador' : 'Cliente' }}
+                </p>
+            </div>
+
+            @if (Auth::user()->isAdmin())
+                <a href="{{ route('admin.productos.index') }}"
+                   class="mt-2 block rounded-lg px-3 py-2 text-sm uppercase tracking-wider text-neutral-200 transition hover:bg-brand-gold/10 hover:text-brand-gold">
+                    Panel de productos
+                </a>
+            @endif
+
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit"
+                        class="mt-1 block w-full rounded-lg px-3 py-2 text-left text-sm uppercase tracking-wider text-neutral-200 transition hover:bg-brand-gold/10 hover:text-brand-gold">
+                    Cerrar sesión
+                </button>
+            </form>
+        </div>
+    </details>
+@else
+    <a href="{{ route('login') }}" class="mx-auto mt-4 flex w-fit items-center gap-2 rounded-full border border-brand-gold px-5 py-2 text-sm font-medium uppercase tracking-wider text-brand-gold transition hover:bg-brand-gold hover:text-brand-black md:absolute md:right-4 md:top-1/2 md:mx-0 md:mt-0 md:-translate-y-1/2">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+        </svg>
+        Mi cuenta
+    </a>
+@endauth
         </div>
     </header>
 

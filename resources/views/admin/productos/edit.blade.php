@@ -7,7 +7,7 @@
     <section class="mx-auto w-full max-w-3xl space-y-5">
         <div>
             <a href="{{ route('admin.productos.index') }}" class="text-sm text-brand-gold hover:text-amber-200">← Volver a productos</a>
-            <h1 class="mt-3 font-display text-4xl uppercase text-white">Editar producto</h1>
+            <h1 class="mt-3 font-display text-4xl uppercase tracking-wide text-white">Editar producto</h1>
         </div>
         @include('admin.productos._form')
     </section>
