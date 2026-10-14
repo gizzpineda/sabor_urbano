@@ -97,10 +97,15 @@
                             <span class="font-display text-lg tracking-wide text-brand-gold md:text-xl">
                                 Gs. {{ number_format($plato['precio'], 0, ',', '.') }}
                             </span>
+                            @if ($plato['stock'] === 0)
+                                <span class="mt-1 inline-flex rounded-full border border-brand-gold/30 bg-brand-gold/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-brand-gold">Agotado</span>
+                            @elseif ($plato['stock'] <= 5)
+                                <span class="mt-1 block text-[10px] font-medium uppercase tracking-wider text-brand-gold/80">Últimas unidades</span>
+                            @endif
                         </div>
 
-                        <button type="button"
-                                class="inline-flex items-center gap-1.5 rounded-full border border-brand-gold/60 bg-brand-gold/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-gold transition duration-200 hover:bg-brand-gold hover:text-brand-black">
+                        <button type="button" @disabled($plato['stock'] === 0)
+                                class="inline-flex items-center gap-1.5 rounded-full border border-brand-gold/60 bg-brand-gold/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-gold transition duration-200 hover:bg-brand-gold hover:text-brand-black disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-brand-gold/10 disabled:hover:text-brand-gold">
                             <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19" />
                                 <line x1="5" y1="12" x2="19" y2="12" />
@@ -171,10 +176,15 @@
                             <span class="font-display text-lg tracking-wide text-brand-gold md:text-xl">
                                 Gs. {{ number_format($bebida['precio'], 0, ',', '.') }}
                             </span>
+                            @if ($bebida['stock'] === 0)
+                                <span class="mt-1 inline-flex rounded-full border border-brand-gold/30 bg-brand-gold/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-brand-gold">Agotado</span>
+                            @elseif ($bebida['stock'] <= 5)
+                                <span class="mt-1 block text-[10px] font-medium uppercase tracking-wider text-brand-gold/80">Últimas unidades</span>
+                            @endif
                         </div>
 
-                        <button type="button"
-                                class="inline-flex items-center gap-1.5 rounded-full border border-brand-gold/60 bg-brand-gold/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-gold transition duration-200 hover:bg-brand-gold hover:text-brand-black">
+                        <button type="button" @disabled($bebida['stock'] === 0)
+                                class="inline-flex items-center gap-1.5 rounded-full border border-brand-gold/60 bg-brand-gold/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-gold transition duration-200 hover:bg-brand-gold hover:text-brand-black disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-brand-gold/10 disabled:hover:text-brand-gold">
                             <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19" />
                                 <line x1="5" y1="12" x2="19" y2="12" />
