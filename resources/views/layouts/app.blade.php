@@ -38,13 +38,23 @@
             </div>
 
             {{-- Mi cuenta --}}
-            <a href="#" class="mx-auto mt-4 flex w-fit items-center gap-2 rounded-full border border-brand-gold px-5 py-2 text-sm font-medium uppercase tracking-wider text-brand-gold transition hover:bg-brand-gold hover:text-brand-black md:absolute md:right-4 md:top-1/2 md:mx-0 md:mt-0 md:-translate-y-1/2">
+            @auth
+                <div class="mx-auto mt-4 flex w-fit items-center gap-3 md:absolute md:right-4 md:top-1/2 md:mx-0 md:mt-0 md:-translate-y-1/2">
+                    <span class="text-sm font-medium text-stone-200">{{ Auth::user()->name }}</span>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="rounded-full border border-brand-gold px-5 py-2 text-sm font-medium uppercase tracking-wider text-brand-gold transition hover:bg-brand-gold hover:text-brand-black">Cerrar sesión</button>
+                    </form>
+                </div>
+            @else
+            <a href="{{ route('login') }}" class="mx-auto mt-4 flex w-fit items-center gap-2 rounded-full border border-brand-gold px-5 py-2 text-sm font-medium uppercase tracking-wider text-brand-gold transition hover:bg-brand-gold hover:text-brand-black md:absolute md:right-4 md:top-1/2 md:mx-0 md:mt-0 md:-translate-y-1/2">
                 <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                     <circle cx="12" cy="7" r="4" />
                 </svg>
                 Mi cuenta
             </a>
+            @endauth
         </div>
     </header>
 
