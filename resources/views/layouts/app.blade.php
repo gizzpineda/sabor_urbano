@@ -42,7 +42,7 @@
                 <div class="mx-auto mt-4 flex w-fit items-center gap-3 md:absolute md:right-4 md:top-1/2 md:mx-0 md:mt-0 md:-translate-y-1/2">
                     <span class="text-sm font-medium text-stone-200">{{ Auth::user()->name }}</span>
                     @if (Auth::user()->isAdmin())
-                        <a href="{{ route('admin.productos') }}" class="text-sm font-medium text-brand-gold transition hover:text-amber-200">Panel de productos</a>
+                        <a href="{{ route('admin.productos.index') }}" class="text-sm font-medium text-brand-gold transition hover:text-amber-200">Panel de productos</a>
                     @endif
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
