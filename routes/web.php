@@ -16,3 +16,7 @@ Route::get('/registro', [AuthController::class, 'showRegistration'])->name('regi
 Route::post('/registro', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/admin/productos', function () {
+    return view('admin.productos');
+})->middleware(['auth', 'admin'])->name('admin.productos');
+
