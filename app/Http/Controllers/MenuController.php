@@ -19,6 +19,7 @@ class MenuController extends Controller
             ->orderBy('nombre')
             ->get()
             ->map(fn (Producto $producto) => [
+                'id' => $producto->id,
                 'nombre' => $producto->nombre,
                 'categoria' => ucfirst($producto->subcategoria),
                 'descripcion' => $producto->descripcion,
@@ -36,6 +37,7 @@ class MenuController extends Controller
             ->orderBy('nombre')
             ->get()
             ->map(fn (Producto $producto) => [
+                'id' => $producto->id,
                 'nombre' => $producto->nombre,
                 'categoria' => ucfirst($producto->subcategoria),
                 'descripcion' => $producto->descripcion,

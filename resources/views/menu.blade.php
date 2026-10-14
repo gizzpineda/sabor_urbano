@@ -104,7 +104,7 @@
                             @endif
                         </div>
 
-                        <button type="button" @disabled($plato['stock'] === 0)
+                        <button type="button" data-cart-add data-id="{{ $plato['id'] }}" data-name="{{ $plato['nombre'] }}" data-price="{{ $plato['precio'] }}" data-stock="{{ $plato['stock'] }}" @disabled($plato['stock'] === 0)
                                 class="inline-flex items-center gap-1.5 rounded-full border border-brand-gold/60 bg-brand-gold/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-gold transition duration-200 hover:bg-brand-gold hover:text-brand-black disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-brand-gold/10 disabled:hover:text-brand-gold">
                             <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19" />
@@ -183,7 +183,7 @@
                             @endif
                         </div>
 
-                        <button type="button" @disabled($bebida['stock'] === 0)
+                        <button type="button" data-cart-add data-id="{{ $bebida['id'] }}" data-name="{{ $bebida['nombre'] }}" data-price="{{ $bebida['precio'] }}" data-stock="{{ $bebida['stock'] }}" @disabled($bebida['stock'] === 0)
                                 class="inline-flex items-center gap-1.5 rounded-full border border-brand-gold/60 bg-brand-gold/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-gold transition duration-200 hover:bg-brand-gold hover:text-brand-black disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-brand-gold/10 disabled:hover:text-brand-gold">
                             <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19" />
