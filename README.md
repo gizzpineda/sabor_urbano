@@ -1,5 +1,7 @@
 # Sabor Urbano
 
+Repositorio: https://github.com/gizzpineda/sabor_urbano
+
 Sitio web de comida urbana hecho con Laravel. Los clientes ven el menú, arman su pedido y lo envían. El administrador gestiona productos, stock y pedidos.
 
 ## Funciones
